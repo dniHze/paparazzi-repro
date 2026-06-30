@@ -24,4 +24,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "PaparazziR"
 include(":app")
+include(":design")
+include(":a")
+include(":b")
  

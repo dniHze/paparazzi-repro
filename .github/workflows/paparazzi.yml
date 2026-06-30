@@ -21,7 +21,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v5
 
       - name: Run Paparazzi tests
-        run: ./gradlew :app:verifyPaparazziDebug --rerun-tasks --stacktrace
+        run: ./gradlew verifyPaparazziDebug --rerun-tasks --stacktrace
 
       - name: Upload failure diffs
         if: failure()

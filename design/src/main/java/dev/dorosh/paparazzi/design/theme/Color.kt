@@ -1,4 +1,4 @@
-package dev.dorosh.paparazzi.repro.ui.theme
+package dev.dorosh.paparazzi.design.theme
 
 import androidx.compose.ui.graphics.Color
 
