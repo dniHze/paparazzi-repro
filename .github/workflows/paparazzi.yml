@@ -7,6 +7,10 @@ on:
 jobs:
   paparazzi:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        run: [1, 2, 3, 4, 5, 6, 7, 8]
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -20,13 +24,13 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v5
 
-      - name: Run Paparazzi tests
+      - name: Run Paparazzi tests (run ${{ matrix.run }})
         run: ./gradlew verifyPaparazziDebug --rerun-tasks --stacktrace
 
       - name: Upload failure diffs
         if: failure()
         uses: actions/upload-artifact@v7
         with:
-          name: paparazzi-failures
+          name: paparazzi-failures-run-${{ matrix.run }}
           path: '**/build/paparazzi/failures/'
           if-no-files-found: ignore
