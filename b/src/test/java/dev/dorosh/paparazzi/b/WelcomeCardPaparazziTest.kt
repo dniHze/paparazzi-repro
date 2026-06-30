@@ -11,6 +11,8 @@ class WelcomeCardPaparazziTest {
 
     @Test
     fun welcomeCard() {
-        paparazzi.snapshot { WelcomeCardPreview() }
+        paparazzi.snapshot {
+            WelcomeCardPreview()
+        }
     }
 }
