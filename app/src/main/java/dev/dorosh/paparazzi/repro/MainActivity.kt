@@ -69,11 +69,7 @@ fun Greeting(modifier: Modifier = Modifier) {
         }
     }
     val textInputService = LocalTextInputService.current
-    LaunchedEffect(textInputService) {
-        @Suppress("DEPRECATION")
-        textInputService!!.showSoftwareKeyboard()
-    }
-
+    textInputService!!.showSoftwareKeyboard()
 }
 
 @Preview(
