@@ -21,9 +21,6 @@ jobs:
           distribution: zulu
           java-version: '22'
 
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v5
-
       - name: Run Paparazzi tests (run ${{ matrix.run }})
         run: ./gradlew verifyPaparazziDebug --rerun-tasks --stacktrace
 
