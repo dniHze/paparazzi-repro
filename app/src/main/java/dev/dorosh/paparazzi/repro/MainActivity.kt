@@ -26,6 +26,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.platform.LocalTextInputService
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.dorosh.paparazzi.design.theme.PaparazziRTheme
@@ -67,8 +68,10 @@ fun Greeting(modifier: Modifier = Modifier) {
             )
         }
     }
-    LaunchedEffect(Unit) {
-        focusRequester.requestFocus()
+    val textInputService = LocalTextInputService.current
+    LaunchedEffect(textInputService) {
+        @Suppress("DEPRECATION")
+        textInputService!!.showSoftwareKeyboard()
     }
 
 }
